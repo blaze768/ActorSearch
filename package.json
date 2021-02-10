@@ -1,0 +1,19 @@
+{
+  "name": "actorsearch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blaze768/ActorSearch.git"
+  },
+  "author": "John Trimble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blaze768/ActorSearch/issues"
+  },
+  "homepage": "https://github.com/blaze768/ActorSearch#readme"
+}
