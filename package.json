@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "node-fetch": "^2.6.1",
-    "prompt-sync": "^4.2.0"
+    "prompt-sync": "^4.2.0",
+    "unirest": "^0.6.0"
   }
 }
