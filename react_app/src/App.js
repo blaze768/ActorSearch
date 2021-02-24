@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback} from 'react'
+import React, { useState, useCallback} from 'react'
 import './App.css';
 import fetch from 'node-fetch';
 
@@ -15,22 +15,11 @@ function App() {
       },
     })
     .then(res=>res.json())
-    .then(response => {
-      for (var i=0; i<response.results.length; i++){
-        if (response.results[i].name == name){
-          setMovInfo(response.results.known_for)
-        }
-        else{
-          setMovInfo(null)
-        }
-      }
-    })
+    .then(response => setMovInfo([response]))
     .catch(error => console.log(error))
   },[name])
 
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
+  
 
   return (
     <div className="App">
@@ -39,15 +28,34 @@ function App() {
           Search for an Actor
         </h1>
         <input value={name} onChange={e => setName(e.target.value)}/> 
-        <button type='button' onClick={fetchData}>Find Actor Info</button>
+        <button type='button' onClick={fetchData}>Find Actor's Info</button>
         {console.log(movInfo)}
       </header>
       <main>
-        {movInfo &&
-          <blockquote>
-            "{movInfo && movInfo.results}"
-          </blockquote>
-        }
+        {movInfo.map((data, key) => {
+          return(
+            <div key={key}>
+              {data.results[0].known_for[0].title +
+              ", " +
+              data.results[0].known_for[0].overview +
+              ", " +
+              data.results[0].known_for[0].poster_path +
+              ", " +
+              data.results[0].known_for[1].title +
+              ", " +
+              data.results[0].known_for[1].overview +
+              ", " +
+              data.results[0].known_for[1].poster_path +
+              ", " +
+              data.results[0].known_for[2].title +
+              ", " +
+              data.results[0].known_for[2].overview +
+              ", " +
+              data.results[0].known_for[2].poster_path
+              }
+            </div>
+          )
+        })}
       </main>
     </div>
   );
